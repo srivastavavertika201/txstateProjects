@@ -1,0 +1,23 @@
+class Solution {
+    public int numberOfArithmeticSlices(int[] nums) {
+        if(nums == null || nums.length ==0){
+            return 0;
+        }
+        int prev = 0;
+        int sum =0;
+        
+        for(int i = nums.length-3;i>=0;i--){
+            if(nums[i+2]-nums[i+1] == nums[i+1]-nums[i]){ //if valid
+                prev = 1+prev;
+                sum = sum+prev;
+            }
+            else{ // if invalid
+                prev = 0;
+            }
+        }
+        return sum;
+    }
+}
+
+//Time Complexity : O(n)
+//Space Complexity : O(1)
